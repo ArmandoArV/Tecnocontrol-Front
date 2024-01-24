@@ -1,17 +1,17 @@
 import React from "react";
+import "./CardComponent.css";
+import tesla from "../../images/tesla.png";
 
-export default function CardComponent(props) {
+export default function CardComponent({ onClick, vehicleName, placas }) {
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
       <div className="leftContainer">
-        <img src={props.img} alt={props.alt} />
+        <img src={tesla} alt="Vehicle" />
       </div>
       <div className="middleContainer">
-        <h2>{props.vehicleName}</h2>
+        <h2>{vehicleName}</h2>
       </div>
-      <div className="rightContainer">
-        {props.status ? <h3>Available</h3> : <h3>Not Available</h3>}
-      </div>
+      <div className="rightContainer">{placas}</div>
     </div>
   );
 }

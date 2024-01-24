@@ -23,15 +23,16 @@
   margin: 0 10px;
 }
 
-.leftContainer {
+.lefContainer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 20%;
-  height: 100%;
-  background-color: aqua;
-  padding: 1em;
+  height: 45em;
+  padding: 2em;
+  margin: 2em;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 .rightContainer {
@@ -41,6 +42,4 @@
   align-items: center;
   width: 80%;
   height: 100%;
-  background-color: rgb(121, 156, 156);
-  padding: 1em;
 }
