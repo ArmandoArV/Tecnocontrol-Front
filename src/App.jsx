@@ -102,14 +102,13 @@ function App() {
     setSearchTerm(event.target.value);
   };
 
-  // Filter markers based on the search term
   const filteredMarkers = markers.filter((marker) =>
     marker.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
     <div className="container">
       <div className="topContainer">
-        <h1>Vehicle Tracker</h1>
+        <h1>Vehicle Tracker, by: ArmandoAV</h1>
       </div>
       <div className="middleContainer">
         {" "}
