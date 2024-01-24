@@ -3,10 +3,12 @@ import React, { useEffect, useCallback, useState } from "react";
 import { apiURL, token } from "./Constants";
 import MapComponent from "./Components/MapComponent/MapComponent";
 import CardComponent from "./Components/CardComponent/CardComponent";
+import SearchComponent from "./Components/SearchComponent/SearchComponent";
 
 function App() {
   const [markers, setMarkers] = useState([]);
   const [selectedMarker, setSelectedMarker] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const fetchUnidades = useCallback(async () => {
     try {
@@ -96,13 +98,29 @@ function App() {
     console.log("Markers:", markers);
   }, [markers]);
 
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // Filter markers based on the search term
+  const filteredMarkers = markers.filter((marker) =>
+    marker.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
   return (
     <div className="container">
-      <div className="topContainer">a</div>
-      <div className="middleContainer">b</div>
+      <div className="topContainer">
+        <h1>Vehicle Tracker</h1>
+      </div>
+      <div className="middleContainer">
+        {" "}
+        <SearchComponent
+          searchTerm={searchTerm}
+          onSearchChange={handleSearchChange}
+        />
+      </div>
       <div className="bottomContainer">
         <div className="lefContainer">
-          {markers.map((marker, index) => (
+          {filteredMarkers.map((marker, index) => (
             <CardComponent
               key={index}
               vehicleName={marker.name}

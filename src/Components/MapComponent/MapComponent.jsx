@@ -33,7 +33,6 @@ const MapComponent = ({ markers, selectedMarker: initialSelectedMarker }) => {
   };
 
   useEffect(() => {
-    // Initialize selectedMarker with the provided initialSelectedMarker
     setSelectedMarker(initialSelectedMarker);
   }, [initialSelectedMarker]);
 
